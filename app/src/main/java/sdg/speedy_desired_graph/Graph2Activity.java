@@ -26,7 +26,7 @@ public class Graph2Activity extends Fragment implements View.OnClickListener {
         GraphView graph = (GraphView) v.findViewById(R.id.graph);
         double[] a;
         double[] b;
-        double C=SetValueActivity.C+0.1;
+        double C=SetValueActivity.C+0.3;
         a = new double[SetValueActivity.Count];
         b = new double[SetValueActivity.Count];
         int ii = 0;
@@ -49,8 +49,8 @@ public class Graph2Activity extends Fragment implements View.OnClickListener {
         graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
         series.setTitle("sinusoid");
         graph.getViewport().setXAxisBoundsManual(true);
-        graph.getViewport().setMinX(SetValueActivity.Left);
-        graph.getViewport().setMaxX(SetValueActivity.Right);
+        //graph.getViewport().setMinX(SetValueActivity.Left);
+        //graph.getViewport().setMaxX(SetValueActivity.Right);
 
         DataPoint[] DP2 = new DataPoint[SetValueActivity.N];
         for (int i=0;i<SetValueActivity.N;i++)

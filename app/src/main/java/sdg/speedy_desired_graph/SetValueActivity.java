@@ -1,7 +1,9 @@
 package sdg.speedy_desired_graph;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;

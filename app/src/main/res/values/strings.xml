@@ -13,5 +13,5 @@
     <string name="ready">Готово</string>
     <string name="menulist_title">Список</string>
     <string name="xfunction_title">Значение фукции x</string>
-    <string name="start">Для создания модели и получения всех данных необходимо ввести данные.</string>
+    <string name="start">Для создания модели и получения всех данных необходимо задать значения.</string>
 </resources>

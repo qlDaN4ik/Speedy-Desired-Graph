@@ -22,8 +22,11 @@
         android:text="Начать"
         android:id="@+id/start"
         android:layout_gravity="center"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:layout_below="@+id/textView6"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" ></Button>
+        android:layout_marginTop="40dp"
+        android:background="#228B22"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"></Button>
 </RelativeLayout>

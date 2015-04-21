@@ -1,9 +1,7 @@
 package sdg.speedy_desired_graph;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -12,18 +10,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+
 
 public class SelectActivity extends Fragment implements OnClickListener {
     Button Save, Load;
-    final String LOG_TAG = "myLogs";
-    final String FILENAME = "file.txt";
+    private final static String SampleX = "sample.txt";
+    private final static String SampleY = "sample2.txt";
     private TextView ValuesSampleXView ,ValuesSampleYView;
     int N=0;
     @Override
@@ -60,47 +57,90 @@ public class SelectActivity extends Fragment implements OnClickListener {
 
         switch (v.getId()) {
             case R.id.Save:
-                saveText();
+                saveText(SampleX);
+                saveText2(SampleY);
                 break;
             case R.id.Load:
-                loadText();
+                loadText(SampleX);
+                loadText2(SampleY);
                 break;
         }
     }
-    void saveText() {
+    private void saveText(String SampleX) {
         try {
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-                    getActivity().openFileOutput(FILENAME, Context.MODE_PRIVATE)));
-            bw.write("Содержимое файла");
-            bw.close();
-            Log.d(LOG_TAG, "Файл записан");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            OutputStream outputStream = getActivity().openFileOutput(SampleX, 0);
+            OutputStreamWriter osw = new OutputStreamWriter(outputStream);
+            osw.write(ValuesSampleXView.getText().toString());
+            osw.close();
+            Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Выборка сохранена", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.BOTTOM, 0, 0);
+            toast.show();
+        } catch (Throwable t) {
+            Toast.makeText(getActivity().getApplicationContext(),
+                    "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
         }
-        Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Выборка сохранена", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
-        toast.show();
+    }
+    private void saveText2(String SampleY) {
+        try {
+            OutputStream outputStream = getActivity().openFileOutput(SampleY, 0);
+            OutputStreamWriter osw = new OutputStreamWriter(outputStream);
+            osw.write(ValuesSampleYView.getText().toString());
+            osw.close();
+        } catch (Throwable t) {
+            Toast.makeText(getActivity().getApplicationContext(),
+                    "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
+        }
     }
 
-    void loadText(){
+
+    private void loadText(String SampleX) {
         ValuesSampleXView.setText("");
         ValuesSampleYView.setText("");
         try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    getActivity().openFileInput(FILENAME)));
-            String str = "";
-            while ((str = br.readLine()) != null) {
-                Log.d(LOG_TAG, str);
+            InputStream inputStream = getActivity().openFileInput(SampleX);
+
+            if (inputStream != null) {
+                InputStreamReader isr = new InputStreamReader(inputStream);
+                BufferedReader reader = new BufferedReader(isr);
+                String line;
+                StringBuilder builder = new StringBuilder();
+
+                while ((line = reader.readLine()) != null) {
+                    builder.append(line + "\n");
+                }
+
+                inputStream.close();
+                Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Выборка загружена", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.BOTTOM, 0, 0);
+                toast.show();
+                ValuesSampleXView.setText(builder.toString());
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Throwable t) {
+            Toast.makeText(getActivity().getApplicationContext(),
+                    "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
         }
-        Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Выборка загружена", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
-        toast.show();
+
     }
+    private void loadText2(String SampleY) {
+        try {
+            InputStream inputStream = getActivity().openFileInput(SampleY);
+
+            if (inputStream != null) {
+                InputStreamReader isr = new InputStreamReader(inputStream);
+                BufferedReader reader = new BufferedReader(isr);
+                String line;
+                StringBuilder builder = new StringBuilder();
+
+                while ((line = reader.readLine()) != null) {
+                    builder.append(line + "\n");
+                }
+                inputStream.close();
+                ValuesSampleYView.setText(builder.toString());
+            }
+        } catch (Throwable t) {
+            Toast.makeText(getActivity().getApplicationContext(),
+                    "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
+
 }

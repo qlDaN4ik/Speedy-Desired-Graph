@@ -10,7 +10,11 @@
         android:text="@string/graph_title"
         android:id="@+id/graph"
         android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#228B22"
+        android:layout_marginBottom="20dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -18,7 +22,11 @@
         android:text="@string/data_title"
         android:id="@+id/data"
         android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#228B22"
+        android:layout_marginBottom="20dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -26,7 +34,11 @@
         android:text="@string/select_title"
         android:id="@+id/select"
         android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#228B22"
+        android:layout_marginBottom="20dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -34,7 +46,11 @@
         android:text="@string/xfunction_title"
         android:id="@+id/functionx"
         android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#228B22"
+        android:layout_marginBottom="20dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -42,6 +58,9 @@
         android:text="@string/about_title"
         android:id="@+id/about"
         android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#228B22"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
 
 </LinearLayout>
