@@ -1,0 +1,292 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:id="@+id/zzzzzzzzzzzzzzz"
+    android:gravity="center">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/set_value"
+        android:id="@+id/setValue"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="false"
+        android:textSize="35sp"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setValue"
+        android:layout_alignParentStart="false"
+        android:id="@+id/linearLayout"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="От скольки"
+            android:id="@+id/LeftView"
+            android:layout_below="@+id/setValue"
+            android:layout_alignParentStart="true"
+            android:textSize="20sp"
+            android:minWidth="250dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ValueLeftView"
+            android:textIsSelectable="false"
+            android:layout_alignTop="@+id/LeftView"
+            android:layout_toEndOf="@+id/LeftView"
+            android:text="0"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:minWidth="60dp" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentStart="false"
+        android:id="@+id/linearLayout2"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="До скольки"
+            android:id="@+id/RightView"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:textSize="20sp"
+            android:minWidth="250dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ValueRightView"
+            android:layout_above="@+id/RightView"
+            android:layout_alignParentLeft="true"
+            android:text="6"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textIsSelectable="false"
+            android:minWidth="60dp" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentStart="false"
+        android:id="@+id/linearLayout3"
+        android:layout_alignParentEnd="false"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Шаг"
+            android:id="@+id/StepView"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/ValueStepView"
+            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            android:minWidth="250dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ValueStepView"
+            android:layout_above="@+id/ScaleView"
+            android:layout_alignParentLeft="true"
+            android:text="0.1"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textIsSelectable="false"
+            android:minWidth="60dp" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout4"
+        android:layout_alignParentStart="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Кол-во значений выборки"
+            android:id="@+id/SelectNumberView"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/StepView"
+            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            android:minWidth="250dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ValueSelectNumberView"
+            android:layout_alignTop="@+id/SelectNumberView"
+            android:layout_toEndOf="@+id/SelectNumberView"
+            android:layout_above="@+id/ValueScaleView"
+            android:text="50"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textIsSelectable="false"
+            android:minWidth="60dp" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_alignParentEnd="false"
+        android:id="@+id/linearLayout5"
+        android:layout_alignParentStart="false"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Размытость"
+            android:id="@+id/ScaleView"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/ValueScaleView"
+            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            android:minWidth="250dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ValueScaleView"
+            android:layout_above="@+id/ValueRightView"
+            android:layout_alignParentLeft="true"
+            android:text="0.3"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textIsSelectable="false"
+            android:minWidth="60dp" />
+        </LinearLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Задать выборку самостоятельно"
+        android:id="@+id/selectcheckbox"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_alignParentStart="false"
+        android:checked="false"
+        android:textColor="#000000"
+        android:singleLine="false"
+        android:clickable="true"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сбросить"
+        android:id="@+id/Cancel"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/linearLayout6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ready"
+        android:id="@+id/Ready"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/linearLayout6"
+        android:layout_toRightOf="@+id/Cancel"
+        android:layout_toEndOf="@+id/Cancel"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectcheckbox"
+        android:layout_alignParentStart="false"
+
+        android:id="@+id/linearLayout6"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x="
+            android:visibility="visible"
+            android:textSize="20sp"
+            android:id="@+id/textView2"
+            android:textColor="#000000" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:textSize="20sp"
+            android:id="@+id/samplex"
+            android:textColor="#000000"
+            android:minWidth="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="y="
+            android:visibility="visible"
+            android:textSize="20sp"
+            android:id="@+id/textView5"
+            android:layout_marginLeft="50dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:textSize="20sp"
+            android:id="@+id/sampley"
+            android:textColor="#000000"
+            android:minWidth="60dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Добавить точку"
+            android:visibility="visible"
+            android:id="@+id/setsample"
+            android:layout_marginLeft="5dp"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>
+

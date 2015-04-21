@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/graph_title"
+        android:id="@+id/graph"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_title"
+        android:id="@+id/data"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_title"
+        android:id="@+id/select"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/xfunction_title"
+        android:id="@+id/functionx"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_title"
+        android:id="@+id/about"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp" />
+
+</LinearLayout>

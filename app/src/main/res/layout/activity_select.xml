@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|right|top"
+        android:layout_marginRight="20dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/Save"
+            android:layout_column="0"
+            android:textColor="#000000"
+            android:textSize="40sp"
+            android:layout_gravity="right" ></Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load"
+            android:id="@+id/Load"
+            android:layout_column="1"
+            android:textColor="#000000"
+            android:textSize="40sp" ></Button>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center_horizontal">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/ValuesSampleXView"
+                android:layout_weight="2"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textIsSelectable="false"
+                android:text="X"
+                android:gravity="center" ></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/ValuesSampleYView"
+                android:layout_weight="2"
+                android:layout_marginLeft="200dp"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textIsSelectable="false"
+                android:text="Y"
+                android:gravity="center"
+                android:nestedScrollingEnabled="false" ></TextView>
+
+        </GridLayout>
+    </ScrollView>
+
+
+</LinearLayout>
