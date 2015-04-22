@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 
 
 public class SetValueActivity extends Fragment implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
@@ -26,14 +27,14 @@ public class SetValueActivity extends Fragment implements View.OnClickListener, 
     static public double H = 0;
     static public int Count = 0;
     static public int N = 0;
-    static public double[] X;
-    static public double[] Y;
+    static public ArrayList<Double> X= new ArrayList<Double>();
+    static public ArrayList<Double> Y= new ArrayList<Double>();
     static public double C = 0;
     static public double y = 0;
     static public int ii = 0;
     static public int iii = 0;
-    static public double[] a;
-    static public double[] b;
+    static public ArrayList<Double> a= new ArrayList<Double>();
+    static public ArrayList<Double> b= new ArrayList<Double>();
     static public double E = 0;
     static public boolean enable=false;
     CheckBox SelectCheckbox;
@@ -106,6 +107,10 @@ public class SetValueActivity extends Fragment implements View.OnClickListener, 
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             } else {
+                X.clear();
+                Y.clear();
+                a.clear();
+                b.clear();
                 Left = Double.parseDouble(tl);
                 Right = Double.parseDouble(tr);
                 if(Right<Left)
@@ -117,18 +122,14 @@ public class SetValueActivity extends Fragment implements View.OnClickListener, 
                 H = Double.parseDouble(tst);
                 N = Integer.parseInt(tsn);
                 C = Double.parseDouble(ts);
-                X = new double[N];
-                Y = new double[N];
                 Count = (int) ((Right - Left) / H + 2);
-                a = new double[Count];
-                b = new double[Count];
                 if (SelectCheckbox.isChecked() == false) {
                     for (int i = 0; i < N; i++) {
-                        X[i] = Math.random() * (Right - Left) + Left;
-                        Y[i] = Math.sin(X[i]) + Math.random() * 0.4 - 0.2;
+                        X.add(Math.random() * (Right - Left) + Left);
+                        Y.add(Math.sin(X.get(i)) + Math.random() * 0.4 - 0.2);
                     }
                 }
-                if (SelectCheckbox.isChecked() == true && X[N - 1] == 0 || Y[N - 1] == 0) {
+                if (SelectCheckbox.isChecked() == true && X.get(N - 1) == 0 || Y.get(N - 1) == 0) {
                     Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Заданы не все значения выборки", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
@@ -136,18 +137,17 @@ public class SetValueActivity extends Fragment implements View.OnClickListener, 
                     ii = 0;
                     for (double x = Left; x < Right; x = x + H) {
                         if(Count>ii) {
-                            y = G(x, X, Y, N, C);
-                            a[ii] = x;
-                            b[ii] = y;
+                            y = G(x, X, Y, C);
+                            a.add(x);
+                            b.add(y);
                             ii++;
                         }
                     }
-                    for (int i = 0; i < N; i++) {
-                        E = E + Math.abs(Y[i] - M(X[i], X, Y, N, C));
+                    for (int i = 0; i < X.size(); i++) {
+                        E = E + Math.abs(Y.get(i) - M(X.get(i), X, Y, C));
                     }
-                    E /= (double) N;
+                    E /= (double) X.size();
 
-                enable=true;
 
                 MainActivity.fTrans = getFragmentManager().beginTransaction();
                 MainActivity.fTrans.replace(R.id.frgmCont, MainActivity.frag7);
@@ -181,8 +181,8 @@ public class SetValueActivity extends Fragment implements View.OnClickListener, 
                         samplex.setText("");
                         sampley.setText("");
                     } else {
-                        X[iii] = Double.parseDouble(tX);
-                        Y[iii] = Double.parseDouble(tY);
+                        X.add(Double.parseDouble(tX));
+                        Y.add(Double.parseDouble(tY));
                         iii++;
                         samplex.setText("");
                         sampley.setText("");
@@ -204,27 +204,27 @@ public class SetValueActivity extends Fragment implements View.OnClickListener, 
         return f;
     }
 
-    static public double G(double x, double[] X, double[] Y, int N, double C) {
+    static public double G(double x, ArrayList<Double> X, ArrayList<Double> Y, double C) {
         double y = 0;
         double s1 = 0;
         double s2 = 0;
-        for (int i = 0; i < N; i++) {
-            s1 += Y[i] * F((x - X[i]) / C);
-            s2 += F((x - X[i]) / C);
+        for (int i = 0; i < X.size(); i++) {
+            s1 += Y.get(i) * F((x - X.get(i)) / C);
+            s2 += F((x - X.get(i)) / C);
         }
         if (s2 == 0) y = 0;
         else y = s1 / s2;
         return y;
     }
 
-    static public double M(double x, double[] X, double[] Y, int N, double C) {
+    static public double M(double x,  ArrayList<Double> X,  ArrayList<Double> Y, double C) {
         double y = 0;
         double s1 = 0;
         double s2 = 0;
-        for (int i = 0; i < N; i++) {
-            if (X[i] != x) {
-                s1 += Y[i] * F((x - X[i]) / C);
-                s2 += F((x - X[i]) / C);
+        for (int i = 0; i < X.size(); i++) {
+            if (X.get(i) != x) {
+                s1 += Y.get(i) * F((x - X.get(i)) / C);
+                s2 += F((x - X.get(i)) / C);
             }
         }
         if (s2 == 0) y = 0;

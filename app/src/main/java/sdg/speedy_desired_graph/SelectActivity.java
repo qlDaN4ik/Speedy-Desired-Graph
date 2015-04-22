@@ -25,6 +25,11 @@ public class SelectActivity extends Fragment implements OnClickListener {
     int N = 0;
     double[] X;
     double[] Y;
+    double H=0;
+    double C=0;
+    double Right=0;
+    double Left=0;
+    double Count=0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,15 +40,15 @@ public class SelectActivity extends Fragment implements OnClickListener {
 
         if (SetValueActivity.E == 0) ValuesSampleXView.setText("Значения не заданы");
         else {
-            for (int i = 0; i < SetValueActivity.N; i++) {
-                SetValueActivity.X[i] *= 10000;
-                SetValueActivity.X[i] = (int) SetValueActivity.X[i];
-                SetValueActivity.X[i] /= 10000;
-                ValuesSampleXView.setText(ValuesSampleXView.getText().toString() + "\n" + Double.toString(SetValueActivity.X[i]));
-                SetValueActivity.Y[i] *= 10000;
-                SetValueActivity.Y[i] = (int) SetValueActivity.Y[i];
-                SetValueActivity.Y[i] /= 10000;
-                ValuesSampleYView.setText(ValuesSampleYView.getText().toString() + "\n" + Double.toString(SetValueActivity.Y[i]));
+            for (int i = 0; i < SetValueActivity.X.size(); i++) {
+                SetValueActivity.X.set(i, SetValueActivity.X.get(i)*10000);
+                SetValueActivity.X.set(i, SetValueActivity.X.get(i));
+                SetValueActivity.X.set(i, SetValueActivity.X.get(i)/10000);
+                ValuesSampleXView.setText(ValuesSampleXView.getText().toString() + "\n" + Double.toString(SetValueActivity.X.get(i)));
+                SetValueActivity.Y.set(i, SetValueActivity.Y.get(i)*10000);
+                SetValueActivity.Y.set(i, SetValueActivity.Y.get(i));
+                SetValueActivity.Y.set(i, SetValueActivity.Y.get(i)/10000);
+                ValuesSampleYView.setText(ValuesSampleYView.getText().toString() + "\n" + Double.toString(SetValueActivity.Y.get(i)));
             }
         }
 
@@ -70,12 +75,17 @@ public class SelectActivity extends Fragment implements OnClickListener {
     }
     private void saveText(String SampleX) {
         N=SetValueActivity.N;
+        C=SetValueActivity.C;
+        Left=SetValueActivity.Left;
+        Right=SetValueActivity.Right;
+        H=SetValueActivity.H;
+        Count=SetValueActivity.Count;
         X = new double[N];
         Y = new double[N];
         for(int i=0; i<N;i++)
         {
-            X[i]=SetValueActivity.X[i];
-            Y[i]=SetValueActivity.Y[i];
+            X[i]=SetValueActivity.X.get(i);
+            Y[i]=SetValueActivity.Y.get(i);
         }
         try {
             OutputStream outputStream = getActivity().openFileOutput(SampleX, 0);
@@ -151,11 +161,31 @@ public class SelectActivity extends Fragment implements OnClickListener {
             Toast.makeText(getActivity().getApplicationContext(),
                     "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
         }
+        SetValueActivity.X.clear();
+        SetValueActivity.Y.clear();
+        SetValueActivity.a.clear();
+        SetValueActivity.b.clear();
+        SetValueActivity.E=0;
         for(int i=0; i<N;i++)
         {
-            SetValueActivity.X[i]=X[i];
-            SetValueActivity.Y[i]=Y[i];
+            SetValueActivity.X.add(X[i]);
+            SetValueActivity.Y.add(Y[i]);
         }
+
+        int ii = 0;
+        double y=0;
+        for (double x = Left; x < Right; x = x + H) {
+            if(Count>ii) {
+                y = SetValueActivity.G(x, SetValueActivity.X, SetValueActivity.Y, C);
+                SetValueActivity.a.add(x);
+                SetValueActivity.b.add(y);
+                ii++;
+            }
+        }
+        for (int i = 0; i < SetValueActivity.X.size(); i++) {
+            SetValueActivity.E = SetValueActivity.E + Math.abs(SetValueActivity.X.get(i) - SetValueActivity.M(SetValueActivity.X.get(i), SetValueActivity.X, SetValueActivity.Y, C));
+        }
+        SetValueActivity.E /= (double) SetValueActivity.X.size();
     }
 
 }

@@ -33,15 +33,15 @@ public class Graph2Activity extends Fragment implements View.OnClickListener {
         double y=0;
         for (double x = SetValueActivity.Left; x < SetValueActivity.Right; x = x + SetValueActivity.H) {
             if(SetValueActivity.Count>ii) {
-                y = SetValueActivity.G(x, SetValueActivity.X, SetValueActivity.Y, SetValueActivity.N, C);
+                y = SetValueActivity.G(x, SetValueActivity.X, SetValueActivity.Y, C);
                 a[ii] = x;
                 b[ii] = y;
                 ii++;
             }
         }
 
-        DataPoint[] DP = new DataPoint[SetValueActivity.N];
-        for (int i=0;i<SetValueActivity.N;i++)
+        DataPoint[] DP = new DataPoint[SetValueActivity.X.size()];
+        for (int i=0;i<SetValueActivity.X.size();i++)
             DP[i] = new DataPoint(a[i], b[i]);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(DP);
         graph.addSeries(series);
@@ -52,9 +52,9 @@ public class Graph2Activity extends Fragment implements View.OnClickListener {
         //graph.getViewport().setMinX(SetValueActivity.Left);
         //graph.getViewport().setMaxX(SetValueActivity.Right);
 
-        DataPoint[] DP2 = new DataPoint[SetValueActivity.N];
-        for (int i=0;i<SetValueActivity.N;i++)
-            DP2[i] = new DataPoint(SetValueActivity.X[i], SetValueActivity.Y[i]);
+        DataPoint[] DP2 = new DataPoint[SetValueActivity.X.size()];
+        for (int i=0;i<SetValueActivity.X.size();i++)
+            DP2[i] = new DataPoint(SetValueActivity.X.get(i), SetValueActivity.Y.get(i));
         PointsGraphSeries<DataPoint> series2 = new PointsGraphSeries<DataPoint>(DP2);
         graph.addSeries(series2);
         series2.setTitle("sample");

@@ -24,9 +24,9 @@ public class GraphActivity extends Fragment implements View.OnClickListener {
         oC = (Button)v.findViewById(R.id.click);
         oC.setOnClickListener(this);
         GraphView graph = (GraphView) v.findViewById(R.id.graph);
-        DataPoint[] DP = new DataPoint[SetValueActivity.N];
-        for (int i=0;i<SetValueActivity.N;i++)
-            DP[i] = new DataPoint(SetValueActivity.a[i], SetValueActivity.b[i]);
+        DataPoint[] DP = new DataPoint[SetValueActivity.X.size()];
+        for (int i=0;i<SetValueActivity.X.size();i++)
+            DP[i] = new DataPoint(SetValueActivity.a.get(i), SetValueActivity.b.get(i));
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(DP);
         graph.addSeries(series);
         graph.getLegendRenderer().setVisible(true);
@@ -36,9 +36,9 @@ public class GraphActivity extends Fragment implements View.OnClickListener {
         graph.getViewport().setMinX(SetValueActivity.Left);
         graph.getViewport().setMaxX(SetValueActivity.Right);
 
-        DataPoint[] DP2 = new DataPoint[SetValueActivity.N];
-        for (int i=0;i<SetValueActivity.N;i++)
-            DP2[i] = new DataPoint(SetValueActivity.X[i], SetValueActivity.Y[i]);
+        DataPoint[] DP2 = new DataPoint[SetValueActivity.X.size()];
+        for (int i=0;i<SetValueActivity.X.size();i++)
+            DP2[i] = new DataPoint(SetValueActivity.X.get(i), SetValueActivity.Y.get(i));
         PointsGraphSeries<DataPoint> series2 = new PointsGraphSeries<DataPoint>(DP2);
         graph.addSeries(series2);
         series2.setTitle("sample");
