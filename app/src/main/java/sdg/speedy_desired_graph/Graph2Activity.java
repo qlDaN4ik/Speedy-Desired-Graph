@@ -27,12 +27,12 @@ public class Graph2Activity extends Fragment implements View.OnClickListener {
         double[] a;
         double[] b;
         double C=SetValueActivity.C+0.3;
-        a = new double[SetValueActivity.Count];
-        b = new double[SetValueActivity.Count];
+        a = new double[SetValueActivity.a.size()];
+        b = new double[SetValueActivity.b.size()];
         int ii = 0;
         double y=0;
         for (double x = SetValueActivity.Left; x < SetValueActivity.Right; x = x + SetValueActivity.H) {
-            if(SetValueActivity.Count>ii) {
+            if(SetValueActivity.a.size()>ii) {
                 y = SetValueActivity.G(x, SetValueActivity.X, SetValueActivity.Y, C);
                 a[ii] = x;
                 b[ii] = y;

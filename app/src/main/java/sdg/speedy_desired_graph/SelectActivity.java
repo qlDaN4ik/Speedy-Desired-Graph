@@ -41,14 +41,8 @@ public class SelectActivity extends Fragment implements OnClickListener {
         if (SetValueActivity.E == 0) ValuesSampleXView.setText("Значения не заданы");
         else {
             for (int i = 0; i < SetValueActivity.X.size(); i++) {
-                SetValueActivity.X.set(i, SetValueActivity.X.get(i)*10000);
-                SetValueActivity.X.set(i, SetValueActivity.X.get(i));
-                SetValueActivity.X.set(i, SetValueActivity.X.get(i)/10000);
-                ValuesSampleXView.setText(ValuesSampleXView.getText().toString() + "\n" + Double.toString(SetValueActivity.X.get(i)));
-                SetValueActivity.Y.set(i, SetValueActivity.Y.get(i)*10000);
-                SetValueActivity.Y.set(i, SetValueActivity.Y.get(i));
-                SetValueActivity.Y.set(i, SetValueActivity.Y.get(i)/10000);
-                ValuesSampleYView.setText(ValuesSampleYView.getText().toString() + "\n" + Double.toString(SetValueActivity.Y.get(i)));
+                ValuesSampleXView.setText(ValuesSampleXView.getText().toString() + "\n" + String.format("%.4f", SetValueActivity.X.get(i)));
+                ValuesSampleYView.setText(ValuesSampleYView.getText().toString() + "\n" + String.format("%.4f", SetValueActivity.Y.get(i)));
             }
         }
 

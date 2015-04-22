@@ -4,14 +4,14 @@
     <string name="drawer_item_settings">Settings</string>
     <string name="drawer_item_help">Help</string>
     <string name="drawer_item_open_source">Open Source</string>
-    <string name="about_text"> Программа позволяет составлять модели. В основе лежит непараметрическая оценка регрессии. В программе будет включен блок добавления информации, загрузки их файлов и из Интернета. По мере возможности будет блок автоматической настройки модели. Будет блок отображения графиков.</string>
+    <string name="about_text"> Программа позволяет составлять модели. В основе лежит непараметрическая оценка регрессии. Имеются блоки отображения графиков, добавления информации и автоматической настройки модели. Будет возможность загрузки файлов из Интернета и сбор модели из готовых функций.</string>
     <string name="about_title">О программе</string>
     <string name="graph_title">График</string>
     <string name="select_title">Выборка</string>
     <string name="data_title">Данные</string>
     <string name="set_value"><b>Задайте значения</b></string>
     <string name="ready">Готово</string>
-    <string name="menulist_title">Список</string>
+    <string name="menulist_title">Список </string>
     <string name="xfunction_title">Найти Y от X</string>
     <string name="start">Для создания модели и получения всех данных необходимо задать значения.</string>
 </resources>
