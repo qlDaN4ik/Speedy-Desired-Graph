@@ -38,6 +38,6 @@ public class XFunctionActivity extends Fragment implements View.OnClickListener 
         }
         else;
         double y = SetValueActivity.G(x, SetValueActivity.X, SetValueActivity.Y, SetValueActivity.N, SetValueActivity.C);
-        xfunction.setText("y="+Double.toString(y));
+        xfunction.setText("Y="+Double.toString(y));
     }
 }

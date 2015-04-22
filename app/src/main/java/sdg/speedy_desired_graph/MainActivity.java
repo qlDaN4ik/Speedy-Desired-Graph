@@ -57,12 +57,12 @@ public class MainActivity extends ActionBarActivity {
                 .withActionBarDrawerToggle(true)
                 .withHeader(R.layout.drawer_header)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.set_value).withIcon(FontAwesome.Icon.faw_home),
-                        new PrimaryDrawerItem().withName(R.string.menulist_title).withIcon(FontAwesome.Icon.faw_gamepad).setEnabled(SetValueActivity.enable),
-                        new PrimaryDrawerItem().withName(R.string.graph_title).withIcon(FontAwesome.Icon.faw_gamepad).setEnabled(SetValueActivity.enable),
-                        new PrimaryDrawerItem().withName(R.string.data_title).withIcon(FontAwesome.Icon.faw_eye).setEnabled(SetValueActivity.enable),
-                        new PrimaryDrawerItem().withName(R.string.select_title).withIcon(FontAwesome.Icon.faw_gamepad).setEnabled(SetValueActivity.enable),
-                        new PrimaryDrawerItem().withName(R.string.xfunction_title).withIcon(FontAwesome.Icon.faw_gamepad).setEnabled(SetValueActivity.enable),
+                        new PrimaryDrawerItem().withName(R.string.set_value).withIcon(FontAwesome.Icon.faw_edit),
+                        new PrimaryDrawerItem().withName(R.string.menulist_title).withIcon(FontAwesome.Icon.faw_flash).setEnabled(true),
+                        new PrimaryDrawerItem().withName(R.string.graph_title).withIcon(FontAwesome.Icon.faw_line_chart).setEnabled(true),
+                        new PrimaryDrawerItem().withName(R.string.data_title).withIcon(FontAwesome.Icon.faw_eye).setEnabled(true),
+                        new PrimaryDrawerItem().withName(R.string.select_title).withIcon(FontAwesome.Icon.faw_list_ol).setEnabled(true),
+                        new PrimaryDrawerItem().withName(R.string.xfunction_title).withIcon(FontAwesome.Icon.faw_search).setEnabled(true),
                         new SectionDrawerItem().withName(R.string.drawer_item_settings),
                         new SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_cog).setEnabled(false),
                         new SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_question).setEnabled(false),

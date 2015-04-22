@@ -22,7 +22,9 @@ public class SelectActivity extends Fragment implements OnClickListener {
     private final static String SampleX = "sample.txt";
     private final static String SampleY = "sample2.txt";
     private TextView ValuesSampleXView ,ValuesSampleYView;
-    int N=0;
+    int N = 0;
+    double[] X;
+    double[] Y;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,6 +69,14 @@ public class SelectActivity extends Fragment implements OnClickListener {
         }
     }
     private void saveText(String SampleX) {
+        N=SetValueActivity.N;
+        X = new double[N];
+        Y = new double[N];
+        for(int i=0; i<N;i++)
+        {
+            X[i]=SetValueActivity.X[i];
+            Y[i]=SetValueActivity.Y[i];
+        }
         try {
             OutputStream outputStream = getActivity().openFileOutput(SampleX, 0);
             OutputStreamWriter osw = new OutputStreamWriter(outputStream);
@@ -140,6 +150,11 @@ public class SelectActivity extends Fragment implements OnClickListener {
         } catch (Throwable t) {
             Toast.makeText(getActivity().getApplicationContext(),
                     "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
+        }
+        for(int i=0; i<N;i++)
+        {
+            SetValueActivity.X[i]=X[i];
+            SetValueActivity.Y[i]=Y[i];
         }
     }
 

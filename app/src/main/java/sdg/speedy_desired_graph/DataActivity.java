@@ -19,7 +19,7 @@ public class DataActivity extends Fragment {
         if(SetValueActivity.E==0) dataView.setText("Значения не заданы");
         else
         {
-        dataView.setText("E="+Double.toString(SetValueActivity.E)+ "\n");
+        dataView.setText("Ошибка="+Double.toString(SetValueActivity.E)+ "\n");
         int i=0;
         for (double x = SetValueActivity.Left; x < SetValueActivity.Right; x = x + SetValueActivity.H) {
             if(SetValueActivity.Count>SetValueActivity.ii) {

@@ -12,6 +12,6 @@
     <string name="set_value"><b>Задайте значения</b></string>
     <string name="ready">Готово</string>
     <string name="menulist_title">Список</string>
-    <string name="xfunction_title">Значение фукции x</string>
+    <string name="xfunction_title">Найти Y от X</string>
     <string name="start">Для создания модели и получения всех данных необходимо задать значения.</string>
 </resources>
