@@ -102,7 +102,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Шаг"
+            android:text="Интервал"
             android:id="@+id/StepView"
             android:layout_alignParentStart="true"
             android:layout_above="@+id/ValueStepView"

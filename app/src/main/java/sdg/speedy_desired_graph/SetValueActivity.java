@@ -107,23 +107,22 @@ public class SetValueActivity extends Fragment implements View.OnClickListener, 
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             } else {
-                X.clear();
-                Y.clear();
                 a.clear();
                 b.clear();
                 Left = Double.parseDouble(tl);
                 Right = Double.parseDouble(tr);
-                if(Right<Left)
-                {
-                    double c=Left;
-                    Left=Right;
-                    Right=c;
+                if (Right < Left) {
+                    double c = Left;
+                    Left = Right;
+                    Right = c;
                 }
                 H = Double.parseDouble(tst);
                 N = Integer.parseInt(tsn);
                 C = Double.parseDouble(ts);
                 Count = (int) ((Right - Left) / H + 2);
                 if (SelectCheckbox.isChecked() == false) {
+                    X.clear();
+                    Y.clear();
                     for (int i = 0; i < N; i++) {
                         X.add(Math.random() * (Right - Left) + Left);
                         Y.add(Math.sin(X.get(i)) + Math.random() * 0.4 - 0.2);
@@ -136,7 +135,7 @@ public class SetValueActivity extends Fragment implements View.OnClickListener, 
                 }
                     ii = 0;
                     for (double x = Left; x < Right; x = x + H) {
-                        if(Count>ii) {
+                        if (Count > ii) {
                             y = G(x, X, Y, C);
                             a.add(x);
                             b.add(y);
@@ -149,14 +148,19 @@ public class SetValueActivity extends Fragment implements View.OnClickListener, 
                     E /= (double) X.size();
 
 
-                MainActivity.fTrans = getFragmentManager().beginTransaction();
-                MainActivity.fTrans.replace(R.id.frgmCont, MainActivity.frag7);
-                MainActivity.fTrans.commit();
-                }
+                    MainActivity.fTrans = getFragmentManager().beginTransaction();
+                    MainActivity.fTrans.replace(R.id.frgmCont, MainActivity.frag7);
+                    MainActivity.fTrans.commit();
+
+            }
 
 
             break;
         case R.id.Cancel:
+            a.clear();
+            b.clear();
+            X.clear();
+            Y.clear();
             ValueLeftView.setText("");
             ValueRightView.setText("");
             ValueStepView.setText("");

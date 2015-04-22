@@ -33,8 +33,8 @@ public class GraphActivity extends Fragment implements View.OnClickListener {
         graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
         series.setTitle("sinusoid");
         graph.getViewport().setXAxisBoundsManual(true);
-        graph.getViewport().setMinX(SetValueActivity.Left);
-        graph.getViewport().setMaxX(SetValueActivity.Right);
+        //graph.getViewport().setMinX(SetValueActivity.Left);
+        //graph.getViewport().setMaxX(SetValueActivity.Right);
 
         DataPoint[] DP2 = new DataPoint[SetValueActivity.X.size()];
         for (int i=0;i<SetValueActivity.X.size();i++)
